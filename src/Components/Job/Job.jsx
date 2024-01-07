@@ -1,8 +1,9 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job
+    const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -20,12 +21,12 @@ const Job = ({ job }) => {
                             <p>{location}</p>
                         </div>
                         <div className="flex gap-2">
-                            <AiOutlineDollar  className="text-xl"></AiOutlineDollar>
+                            <AiOutlineDollar className="text-xl"></AiOutlineDollar>
                             <p>{salary}</p>
                         </div>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-primary">View Details</button>
+                        <Link to={`/job/${id}`}><button className="btn btn-primary">View Details</button></Link>
                     </div>
                 </div>
             </div>
